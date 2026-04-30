@@ -11570,7 +11570,7 @@ GameObject:
   - component: {fileID: 806730260}
   - component: {fileID: 806730259}
   - component: {fileID: 806730258}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -13484,6 +13484,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  groundDrag: 5
+  jumpForce: 12
+  jumpCooldown: 0.25
+  airMultiplier: 0.4
+  jumpKey: 32
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
   orientation: {fileID: 314429595}
 --- !u!43 &1210759459
 Mesh:
