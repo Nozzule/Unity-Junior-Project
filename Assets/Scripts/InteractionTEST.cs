@@ -6,6 +6,11 @@ namespace EJETAGame
     using System.Collections.Generic;
     using UnityEngine;
 
+    //interface IInteractable
+    //{
+        //public void Interact();
+    //}
+
     /**
      * Interactable test case where we change the color of a sphere gameobject
      * into a random color;
@@ -13,15 +18,25 @@ namespace EJETAGame
     public class InteractionTEST : MonoBehaviour, IInteractable
     {
         private Color randomColor;
+        public GameObject canvasToToggle;
+        //public Transform InteractorSource;
+        //public float InteractRange;
 
         //Which button the user must press to initiate the Interaction;
         public KeyCode interactionKey;
         public void Interact()
         {
-            if (Input.GetKeyDown(interactionKey))
+            //if (Input.GetKeyDown(interactionKey))
+            //{
+                //this.GetComponent<Renderer>().material.color = RandomColor();
+                //Debug.Log("Success");
+            //}
+            if (Input.GetKeyDown(interactionKey) && gameObject.CompareTag("Puzzle1"))
             {
-                this.GetComponent<Renderer>().material.color = RandomColor();
+                canvasToToggle.SetActive(true);
+                Debug.Log("Success");
             }
+            
             
         }
 
@@ -43,6 +58,21 @@ namespace EJETAGame
         {
             return randomColor = Random.ColorHSV();
         }
+
+        //public void Update()
+        //{
+            //if (Input.GetKeyDown(interactionKey))
+            //{
+                //Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
+                //if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange))
+                //{
+                    //if (hitInfo.collider.gameObject.TryGetcomponent(out IInteractable interactObj))
+                    //{
+                        //interactObj.Interact();
+                    //}
+                //}
+            //}
+        //}
     }
 
 }
