@@ -83,4 +83,9 @@ public class Keypad : MonoBehaviour
             Debug.Log("Failed");
         }
     }
+
+    //void Start()
+    //{
+        //GetComponent<Canvas>().enabled = false;
+    //}
 }
