@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Puzzle1
+  - Puzzle2Piece
   layers:
   - Default
   - TransparentFX

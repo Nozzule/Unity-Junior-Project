@@ -21,6 +21,8 @@ namespace EJETAGame
         public GameObject canvasToToggle;
         //public Transform InteractorSource;
         //public float InteractRange;
+        private float puzzle2Piece = 0;
+        public KeyCode escapeKey;
 
         //Which button the user must press to initiate the Interaction;
         public KeyCode interactionKey;
@@ -31,13 +33,8 @@ namespace EJETAGame
                 //this.GetComponent<Renderer>().material.color = RandomColor();
                 //Debug.Log("Success");
             //}
-            if (Input.GetKeyDown(interactionKey) && gameObject.CompareTag("Puzzle1"))
-            {
-                canvasToToggle.SetActive(true);
-                Debug.Log("Success");
-            }
-            
-            
+            Update();
+                
         }
 
         //When our interaction begin, we set the UI text to prompt the user to
@@ -73,6 +70,37 @@ namespace EJETAGame
                 //}
             //}
         //}
+
+        void start()
+        {
+            canvasToToggle.SetActive(false);
+        }
+
+        void Update()
+        {
+            //Keypad is almost done, ask Geiger about how to fix the issue where it won't appear the first time.
+            if (Input.GetKeyDown(interactionKey) && gameObject.CompareTag("Puzzle1"))
+            {
+                Debug.Log("Success");
+                canvasToToggle.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else if (Input.GetKeyDown(escapeKey) && gameObject.CompareTag("Puzzle1"))
+            {
+                Debug.Log("Exited");
+                canvasToToggle.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+
+            if (Input.GetKeyDown(interactionKey) && gameObject.CompareTag("Puzzle2Piece"))
+            {
+                Debug.Log("Success");
+                puzzle2Piece ++;
+                //Destroy(gameObject.CompareTag("Puzzle2Piece"));
+            }
+        }
     }
 
 }
