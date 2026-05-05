@@ -33,6 +33,7 @@ namespace EJETAGame
                 //this.GetComponent<Renderer>().material.color = RandomColor();
                 //Debug.Log("Success");
             //}
+            start();
             Update();
                 
         }
@@ -73,7 +74,7 @@ namespace EJETAGame
 
         void start()
         {
-            canvasToToggle.SetActive(false);
+            //canvasToToggle.SetActive(false);
         }
 
         void Update()
@@ -82,14 +83,14 @@ namespace EJETAGame
             if (Input.GetKeyDown(interactionKey) && gameObject.CompareTag("Puzzle1"))
             {
                 Debug.Log("Success");
-                canvasToToggle.SetActive(true);
+                //canvasToToggle.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
             else if (Input.GetKeyDown(escapeKey) && gameObject.CompareTag("Puzzle1"))
             {
                 Debug.Log("Exited");
-                canvasToToggle.SetActive(false);
+                //canvasToToggle.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }

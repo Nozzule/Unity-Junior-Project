@@ -60,7 +60,7 @@ namespace EJETAGame
             }
             else
             {
-                InteractionText.instance.textAppear.gameObject.SetActive(false);
+                //InteractionText.instance.textAppear.gameObject.SetActive(false);
             }
 
         }
