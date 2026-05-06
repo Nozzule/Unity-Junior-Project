@@ -17,12 +17,16 @@ namespace EJETAGame
      */
     public class InteractionTEST : MonoBehaviour, IInteractable
     {
+        public GameObject player;
         private Color randomColor;
-        public GameObject canvasToToggle;
         //public Transform InteractorSource;
         //public float InteractRange;
-        private float puzzle2Piece = 0;
+        private int puzzle2Piece = 0;
         public KeyCode escapeKey;
+        public float detectionRange = 5;
+        //bool keyReleased = false;
+        //int lastPieceCount = 0;
+        public GameObject Puzzle2;
 
         //Which button the user must press to initiate the Interaction;
         public KeyCode interactionKey;
@@ -75,31 +79,45 @@ namespace EJETAGame
         void start()
         {
             //canvasToToggle.SetActive(false);
+            player = GameObject.FindWithTag("Player");
         }
 
         void Update()
         {
-            //Keypad is almost done, ask Geiger about how to fix the issue where it won't appear the first time.
             if (Input.GetKeyDown(interactionKey) && gameObject.CompareTag("Puzzle1"))
             {
-                Debug.Log("Success");
-                //canvasToToggle.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
             else if (Input.GetKeyDown(escapeKey) && gameObject.CompareTag("Puzzle1"))
             {
-                Debug.Log("Exited");
-                //canvasToToggle.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
 
-            if (Input.GetKeyDown(interactionKey) && gameObject.CompareTag("Puzzle2Piece"))
+            if (Input.GetKeyDown(interactionKey) && gameObject.CompareTag("Puzzle2Piece") && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
             {
-                Debug.Log("Success");
-                puzzle2Piece ++;
-                //Destroy(gameObject.CompareTag("Puzzle2Piece"));
+                //if (Input.GetKeyDown(interactionKey) && )
+                //{
+                    Destroy(gameObject);
+                    puzzle2Piece++;
+                    Debug.Log("Item Collected");
+                //}
+            }
+
+            if (puzzle2Piece >= 4)
+            {
+                SolvePuzzle2();
+            }
+        }
+
+        void SolvePuzzle2()
+        {
+            Debug.Log("Destroy triggered");
+
+            foreach (Transform child in Puzzle2.transform)
+            {
+                Destroy(child.gameObject);
             }
         }
     }

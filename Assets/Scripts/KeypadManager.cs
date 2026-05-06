@@ -5,6 +5,7 @@ public class KeypadManager : MonoBehaviour
     public string correctCode = "1234";
     private string currentInput = "";
     public GameObject PuzzleDoor;
+    public GameObject Puzzle1;
 
     public void Press(string value)
     {
@@ -41,6 +42,6 @@ public class KeypadManager : MonoBehaviour
 
     void SolvePuzzle()
     {
-        //Destroy(gameObject);
+        Destroy(Puzzle1);
     }
 }
