@@ -6,6 +6,9 @@ public class KeypadManager : MonoBehaviour
     private string currentInput = "";
     public GameObject PuzzleDoor;
     public GameObject Puzzle1;
+    public int incorrectCount = 0;
+    public GameObject GOTrigger;
+    public GameObject Player;
 
     public void Press(string value)
     {
@@ -37,8 +40,24 @@ public class KeypadManager : MonoBehaviour
         {
             Debug.Log("Wrong code.");
             currentInput = "";
+            incorrectCount ++;
         }
     }
+
+    public void SpawnTrigger()
+    {
+        if (incorrectCount == 3)
+        {
+            //ActiveTrigger();
+            GOTrigger.transform.position = Player.transform.position;
+            Debug.Log("Game Over");
+        }
+    }
+
+    //public void ActiveTrigger()
+    //{
+        //GOTrigger.transform.position = Player.transform.position;
+    //}
 
     void SolvePuzzle()
     {
