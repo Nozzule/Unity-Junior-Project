@@ -41,6 +41,7 @@ public class KeypadManager : MonoBehaviour
             Debug.Log("Wrong code.");
             currentInput = "";
             incorrectCount ++;
+            SpawnTrigger();
         }
     }
 
