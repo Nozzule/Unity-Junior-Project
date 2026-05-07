@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class KeypadManager : MonoBehaviour
 {
-    public string correctCode = "1234";
+    public string correctCode = "1812";
     private string currentInput = "";
     public GameObject PuzzleDoor;
     public GameObject Puzzle1;

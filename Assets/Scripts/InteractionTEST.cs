@@ -26,7 +26,7 @@ namespace EJETAGame
         public float detectionRange = 5;
         //bool keyReleased = false;
         //int lastPieceCount = 0;
-        public GameObject Puzzle2;
+        public GameObject canvasToToggle;
 
         //Which button the user must press to initiate the Interaction;
         public KeyCode interactionKey;
@@ -78,48 +78,15 @@ namespace EJETAGame
 
         void start()
         {
-            //canvasToToggle.SetActive(false);
-            player = GameObject.FindWithTag("Player");
+            canvasToToggle.SetActive(false);
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(interactionKey) && gameObject.CompareTag("Puzzle1"))
+            if (gameObject.CompareTag("Book") && Input.GetKeyDown(interactionKey))
             {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                canvasToToggle.SetActive(true);
             }
-            else if (Input.GetKeyDown(escapeKey) && gameObject.CompareTag("Puzzle1"))
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-
-            if (Input.GetKeyDown(interactionKey) && gameObject.CompareTag("Puzzle2Piece") && Vector3.Distance(transform.position, player.transform.position) < detectionRange)
-            {
-                //if (Input.GetKeyDown(interactionKey) && )
-                //{
-                    Destroy(gameObject);
-                    puzzle2Piece++;
-                    Debug.Log("Item Collected");
-                //}
-            }
-
-            if (puzzle2Piece >= 4)
-            {
-                SolvePuzzle2();
-            }
-        }
-
-        void SolvePuzzle2()
-        {
-            Debug.Log("Destroy triggered");
-
-            foreach (Transform child in Puzzle2.transform)
-            {
-                Destroy(child.gameObject);
-            }
-        }
+        }   
     }
-
 }

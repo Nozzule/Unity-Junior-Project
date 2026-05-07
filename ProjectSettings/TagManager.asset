@@ -8,6 +8,8 @@ TagManager:
   - Puzzle1
   - Puzzle2Piece
   - Puzzle2
+  - Book
+  - Sign
   layers:
   - Default
   - TransparentFX
