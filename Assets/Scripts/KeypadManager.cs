@@ -9,9 +9,15 @@ public class KeypadManager : MonoBehaviour
     public int incorrectCount = 0;
     public GameObject GOTrigger;
     public GameObject Player;
+    public AudioSource source;
+    public AudioClip buttonSound;
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
 
     public void Press(string value)
     {
+        source.PlayOneShot(buttonSound);
+
         if (value == "C")
         {
             currentInput = "";
@@ -34,12 +40,14 @@ public class KeypadManager : MonoBehaviour
         if (currentInput == correctCode)
         {
             Debug.Log("Correct! Puzzle solved.");
+            source.PlayOneShot(correctSound);
             SolvePuzzle();
         }
         else
         {
             Debug.Log("Wrong code.");
             currentInput = "";
+            source.PlayOneShot(wrongSound);
             incorrectCount ++;
             SpawnTrigger();
         }
@@ -54,11 +62,6 @@ public class KeypadManager : MonoBehaviour
             Debug.Log("Game Over");
         }
     }
-
-    //public void ActiveTrigger()
-    //{
-        //GOTrigger.transform.position = Player.transform.position;
-    //}
 
     void SolvePuzzle()
     {

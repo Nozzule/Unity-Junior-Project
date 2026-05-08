@@ -36,8 +36,6 @@ namespace EJETAGame
                 //this.GetComponent<Renderer>().material.color = RandomColor();
                 //Debug.Log("Success");
             //}
-            start();
-            Update();
                 
         }
 
@@ -74,18 +72,5 @@ namespace EJETAGame
                 //}
             //}
         //}
-
-        void start()
-        {
-            canvasToToggle.SetActive(false);
-        }
-
-        void Update()
-        {
-            if (gameObject.CompareTag("Book") && Input.GetKeyDown(interactionKey))
-            {
-                canvasToToggle.SetActive(true);
-            }
-        }   
     }
 }

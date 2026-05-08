@@ -29,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
     
     Rigidbody rb;
 
+    public AudioSource source;
+    public AudioClip dirtSound;
+    public AudioClip rockSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
