@@ -21,7 +21,6 @@ namespace EJETAGame
         private Color randomColor;
         //public Transform InteractorSource;
         //public float InteractRange;
-        private int puzzle2Piece = 0;
         public KeyCode escapeKey;
         public float detectionRange = 5;
         //bool keyReleased = false;

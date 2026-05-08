@@ -827,10 +827,10 @@ MonoBehaviour:
 
     Mouse: Look Around
 
-    LMB: Confirm
+    LMB: Interact
 
-    E: Interact
-    (When prompted)
+    Space: Exit
+    Interaction
 
 '
   m_isRightToLeft: 0
