@@ -2,14 +2,23 @@ using UnityEngine;
 
 public class PuzzlePiece2 : MonoBehaviour
 {
-    public AudioSource source;
-    public AudioClip soundEffect;
+    private bool collected = false;
+
+    //public AudioSource source;
+    //public AudioClip soundEffect;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (collected) return;
+
         if (other.CompareTag("Player"))
         {
-            source.PlayOneShot(soundEffect);
+            collected = true;
+
+            GetComponent<Collider>().enabled = false;
+
+            //source.PlayOneShot(soundEffect);
+
             FindObjectOfType<Puzzle2Manager>().CollectPiece(gameObject);
         }
     }
