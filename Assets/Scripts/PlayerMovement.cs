@@ -29,8 +29,7 @@ public class PlayerMovement : MonoBehaviour
     
     Rigidbody rb;
 
-    public AudioSource source;
-    public AudioClip dirtSound;
+    public AudioSource Movesrc;
     public AudioClip rockSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -80,9 +79,9 @@ public class PlayerMovement : MonoBehaviour
 
         if(grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
-        else if(!grounded)
+        else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            Movesrc.PlayOneShot(rockSound);
     }
 
     private void Speedcontrol()
