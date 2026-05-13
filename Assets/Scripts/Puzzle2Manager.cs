@@ -18,7 +18,7 @@ public class Puzzle2Manager : MonoBehaviour
 
         Debug.Log("Item Collected: " + puzzle2Piece);
 
-        if (!solved && puzzle2Piece >= 4)
+        if (!solved && puzzle2Piece == 4)
         {
             solved = true;
             SolvePuzzle2();
