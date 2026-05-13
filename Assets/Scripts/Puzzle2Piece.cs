@@ -14,7 +14,7 @@ public class PuzzlePiece2 : MonoBehaviour
 
             GetComponent<Collider>().enabled = false;
 
-            FindObjectOfType<Puzzle2Manager>().CollectPiece(gameObject);
+            FindFirstObjectByType<Puzzle2Manager>().CollectPiece(gameObject);
         }
     }
 }
